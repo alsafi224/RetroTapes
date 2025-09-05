@@ -1,3 +1,29 @@
+
+:root {
+    --color-1: #F4E3C9; /* backround */
+    --color-2: #261F18; /* contrast color, Text */
+    --color-3: #C13825; /* gradient color A, Red */
+    --color-4: #E67520; /* gradient color B, Orange */
+    --color-5: #EBB032; /* gradient color C, yellow */
+}
+
+.dark-mode {
+    --color-1: #261F18; /* Dark background */
+    --color-2: #F4E3C9; /* contrast color, Text */
+    --color-3: #C73825; /* gradient color A, Red */
+    --color-4: #E77F2F; /* gradient color B, Orange */
+    --color-5: #F0B841; /* gradient color C, yellow */
+}
+
+:root {
+    --bs-body-bg: var(--color-1);
+    --bs-body-color: var(--color-2);
+    --bs-primary: var(--color-5);
+    --bs-secondary: var(--color-4);
+    --bs-warning: var(--color-3);
+}
+
+
 html {
   font-size: 14px;
 }
