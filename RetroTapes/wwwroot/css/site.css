@@ -23,6 +23,52 @@
     --bs-warning: var(--color-3);
 }
 
+.topnav {
+    background-color: var(--color-1);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.inner-topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-4);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+    .logo img {
+        height: 30px;
+        margin-right: 10px;
+        border-radius: 6px;
+        box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+.nav-icons a {
+    margin-left: 15px;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+    .nav-icons a i {
+        color: var(--color-4) !important;
+    }
+
+    .nav-icons a:hover i {
+        color: var(--color-5) !important;
+        transform: scale(1.2);
+        transition: all 0.2s ease-in-out;
+    }
 
 html {
   font-size: 14px;
