@@ -22,8 +22,20 @@
                 </a>
 
                 <nav class="nav-icons">
-                    <a href="#" title="Sök"><i class="fa-solid fa-magnifying-glass"></i></a> <!--Byt till sök länk-->
-                    <a href="#" title="Meny"><i class="fa-solid fa-list"></i></a> <!--Byt till Meny länk / gör nerfallande meny-->
+                    <a asp-controller="Search" asp-action="Index" title="Sök" class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+
+                    <div class="dropdown">
+                    <a href="#" title="Meny" class="menu-icon">
+                        <i class="fa-solid fa-list"></i>
+                     </a>
+
+                     <div class="dropdown-menu">
+                         <a class="dropdown-item" asp-controller="Account" asp-action="Login">Login</a>
+                         <a class="dropdown-item" asp-controller="Search" asp-action="Advanced">Avancerad Sök</a>
+                     </div>
+                    </div>
                 </nav>
             </div>
         </div>
