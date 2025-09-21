@@ -1,6 +1,32 @@
-﻿@{
-    ViewData["Title"] = "Sök";
-}
+﻿@model IEnumerable<RetroTapes.Models.Film>
 
-<h2>Sök</h2>
-<p>Lägg till Sökfunktionen här</p>
+<h2>Search Films</h2>
+
+<form method="get" asp-controller="Search" asp-action="Index">
+    <input type="text" name="query" placeholder="Enter film title..." />
+    <button type="submit">Search</button>
+</form>
+
+<hr />
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var film in Model)
+        {
+            <li>
+                <strong>@film.Title</strong>
+                @if (!string.IsNullOrEmpty(film.ReleaseYear))
+                {
+                    <span> (@film.ReleaseYear)</span>
+                }
+                <br />
+                <span>@film.Description</span>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No films found.</p>
+}

@@ -20,14 +20,14 @@ namespace RetroTapes.Models
         public string? Description { get; set; }
 
         [Column("release_year")]
-        public int? ReleaseYear { get; set; }
+        public string? ReleaseYear { get; set; }
 
         [Required]
         [Column("language_id")]
-        public byte LanguageId { get; set; }
+        public int LanguageId { get; set; }
 
         [Column("original_language_id")]
-        public byte? OriginalLanguageId { get; set; }
+        public int? OriginalLanguageId { get; set; }
 
         [Required]
         [Column("rental_duration")]
@@ -38,7 +38,7 @@ namespace RetroTapes.Models
         public decimal RentalRate { get; set; }
 
         [Column("length")]
-        public int? Length { get; set; }
+        public short? Length { get; set; }
 
         [Required]
         [Column("replacement_cost")]
@@ -55,7 +55,7 @@ namespace RetroTapes.Models
         [MaxLength(255)]
         public string? SpecialFeatures { get; set; }
 
-        [Column("fulltext")]
-        public string? FullText { get; set; }
+        //[Column("fulltext")]
+        //public string? FullText { get; set; }
     }
 }

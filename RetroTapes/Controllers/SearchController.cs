@@ -1,19 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RetroTapes.Data;
 
 namespace RetroTapes.Controllers
 {
     public class SearchController : Controller
     {
-        // /Search
-        public IActionResult Index()
+        private readonly AppDbContext _context;
+
+        public SearchController(AppDbContext context)
         {
-            return View();
+            _context = context;
         }
 
-        // /Search/Advanced
-        public IActionResult Advanced()
+        public async Task<IActionResult> Index(string? query)
         {
-            return View();
+            var films = from f in _context.Films
+                        select f;
+
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                films = films.Where(f => f.Title.Contains(query));
+            }
+
+            return View(await films.ToListAsync());
         }
     }
 }
