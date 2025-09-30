@@ -1,6 +1,138 @@
-﻿@{
+﻿@model IEnumerable<string>
+@{
     ViewData["Title"] = "Sök";
 }
 
-<h2>Sök</h2>
-<p>Lägg till Sökfunktionen här</p>
+<head>
+    <style>
+        .center-div {
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            margin: 16px;
+        }
+
+        .picture-div {
+            position: relative;
+            display: flex;
+            text-align: center;
+            max-width: 400px;
+            width: 75%;
+            margin: 0 auto;
+            padding: 50px;
+        }
+
+            .picture-div img {
+                display: block;
+                width: 100%;
+                height: auto;
+                margin: 0 auto;
+            }
+
+        .search-div {
+            position: relative;
+            width: 30em;
+            max-width: 85%;
+            margin: 0 auto 10px auto;
+        }
+
+            .search-div input[type="text"] {
+                width: 100%;
+                padding: 10px 15px;
+                border: 2px solid var(--color-2);
+                border-radius: 16px;
+                font-size: 16px;
+                outline: none;
+                transition: border-color 0.3s;
+            }
+
+                .search-div input[type="text"]:focus {
+                    border-color: var(--color-3);
+                }
+
+            .search-div button {
+                position: absolute;
+                right: 8%;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: var(--color-2);
+                font-size: 18px;
+            }
+
+                .search-div button:hover {
+                    color: var(--color-3);
+                }
+
+        /* Resultatlista */
+        .results {
+            display: grid;
+            justify-content: center;
+            grid-template-columns: repeat(2, max-content);
+            gap: 1px;
+            margin: 10px auto 0 auto;
+            padding: 10px;
+            list-style: none;
+            background-color: var(--color-2);
+            color: var(--color-1);
+            border-radius: 10px;
+            max-width: max-content;
+        }
+
+            .results li {
+                padding: 5px 10px;
+                border-bottom: 1px solid #ddd;
+            }
+
+                .results li:last-child {
+                    border-bottom: none;
+                }
+
+                .results li.results-title {
+                    grid-column: 1 / -1;
+                    text-align: left;
+                    padding-left: 10px;
+                    padding-bottom: 5px;
+                    font-weight: bold;
+                    color: var(--color-5);
+                    font-size: 22px;
+                }
+    </style>
+</head>
+
+<body>
+    <div class="center-div">
+        @if (string.IsNullOrEmpty(Context.Request.Query["query"]))
+        {
+            <div class="picture-div">
+                <img src="images/RetroTapes.png" alt="Retro Tapes" />
+            </div>
+        }
+
+        <div class="search-div">
+            <form asp-controller="Search" asp-action="Index" method="get">
+                <input type="text" name="query" placeholder="Sök Film..." />
+                <button type="submit" title="Sök">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+
+        @if (Model != null && Model.Any())
+        {
+            <ul class="results">
+                <li class="results-title">Titel</li>
+                @foreach (var title in Model)
+                {
+                    <li>@title</li>
+                }
+            </ul>
+        }
+        else if (!string.IsNullOrEmpty(Context.Request.Query["query"]))
+        {
+            <p>Inga filmer matchade din sökning.</p>
+        }
+    </div>
+</body>
