@@ -1,0 +1,12 @@
+﻿@model RetroTapes.Models.Film
+@{
+ViewData["Title"] = Model.Title;
+}
+<div class="container py-4">
+    <h1 class="mb-3">@Model.Title</h1>
+    <p>@Model.Description</p>
+    <p><strong>Längd:</strong> @Model.Length min</p>
+    <p><strong>Betyg:</strong> @Model.Rating</p>
+</div>
+
+
