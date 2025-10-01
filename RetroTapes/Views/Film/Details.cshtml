@@ -1,12 +1,32 @@
 ﻿@model RetroTapes.Models.Film
 @{
-ViewData["Title"] = Model.Title;
+    ViewData["Title"] = Model.Title;
 }
-<div class="container py-4">
-    <h1 class="mb-3">@Model.Title</h1>
-    <p>@Model.Description</p>
-    <p><strong>Längd:</strong> @Model.Length min</p>
-    <p><strong>Betyg:</strong> @Model.Rating</p>
-</div>
+<div class="container py-5">
+    <div class="row g-4">
 
+        <div class="col-md-8">
+            <h1 class="mb-3">@Model.Title (@Model.ReleaseYear)</h1>
+            <p class="lead">@Model.Description</p>
+
+            <div class="mt-4">
+                <a href="#" class="btn btn-outline-dark ms-2">Rent the movie</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-header text-white" style="background: var(--color-2);">
+                    Infomation
+                </div>
+                <div class="card-body">
+                    <p><strong>Length:</strong> @Model.Length min</p>
+                    <p><strong>Rating:</strong> @Model.Rating </p>
+                    <p><strong>Price:</strong> @Model.RentalRate euro</p>
+                    <p><strong>Rental duration:</strong> @Model.RentalDuration days</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 

@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Numerics;
 
 namespace RetroTapes.Models
 {
@@ -54,6 +55,7 @@ namespace RetroTapes.Models
         [Column("special_features")]
         [MaxLength(255)]
         public string? SpecialFeatures { get; set; }
+
 
     }
 }
