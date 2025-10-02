@@ -141,11 +141,26 @@ body {
    color: var(--color-1);
 }
 
+/* FilmInfo */
 
-img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
+:root {
+    --color-1: #F4E3C9; /* bakgrund */
+    --color-2: #261F18; /* text/mörk */
+    --color-3: #C13825; /* röd */
+    --color-4: #E67520; /* orange */
+    --color-5: #EBB032; /* gul */
 }
 
+body {
+    background-color: var(--color-1);
+    color: var(--color-2);
+}
+
+.btn-gradient {
+    background: linear-gradient(45deg, var(--color-3), var(--color-4), var(--color-5));
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px 20px;
+}
