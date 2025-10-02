@@ -136,17 +136,25 @@ body {
     border-radius: 0;
 }
 
+
 .dropdown-item:hover {
    background-color: var(--color-5);
    color: var(--color-1);
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
 }
 
 /* FilmInfo */
 
 :root {
     --color-1: #F4E3C9; /* bakgrund */
-    --color-2: #261F18; /* text/mörk */
-    --color-3: #C13825; /* röd */
+    --color-2: #261F18; /* text/mrk */
+    --color-3: #C13825; /* rd */
     --color-4: #E67520; /* orange */
     --color-5: #EBB032; /* gul */
 }
