@@ -29,6 +29,24 @@
     --DM-bs-warning: var(--DM-color-3);
 }
 
+/* Body & page layout */
+body {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* navbar stretches full width */
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center page content */
+    width: 100%;
+}
+
+/* Navbar */
 .topnav {
     background-color: var(--color-1);
     padding: 10px 20px;
@@ -36,6 +54,8 @@
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    left: 0;
 }
 
 .inner-topnav {
@@ -60,6 +80,7 @@
         box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.4);
     }
 
+/* Navbar icons */
 .nav-icons a {
     margin-left: 15px;
     font-size: 1.5rem;
@@ -76,64 +97,37 @@
         transition: all 0.2s ease-in-out;
     }
 
-html {
-  font-size: 14px;
+/* Forms */
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+    color: var(--bs-secondary);
+    text-align: end;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+    text-align: start;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-
+/* Buttons */
+.btn-gradient {
+    background: linear-gradient(45deg, var(--color-3), var(--color-4), var(--color-5));
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px 20px;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-.body-dark-mode{
-    background-color:var(--DM-bs-body-bg);
-    color:var(--DM-bs-body-color);
-    
-}
-
-body {
-    background-color: #F4E3C9; /*var(--bs-body-bg);*/ 
-    color: var(--bs-body-color);
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-self: center;
-    align-items: center;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}
-
-/* Dropdown Menu */
+/* Dropdown */
 .dropdown {
     position: relative;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
 
-/* Dropdown menu styling */
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -148,7 +142,6 @@ body {
     overflow: hidden;
 }
 
-/* Dropdown items */
 .dropdown-item {
     display: block;
     padding: 8px 16px;
@@ -158,12 +151,12 @@ body {
     border-radius: 0;
 }
 
+    .dropdown-item:hover {
+        background-color: var(--color-5);
+        color: var(--color-1);
+    }
 
-.dropdown-item:hover {
-   background-color: var(--color-5);
-   color: var(--color-1);
-}
-
+/* Images */
 img {
     display: block;
     margin: 0 auto;
@@ -171,51 +164,42 @@ img {
     height: auto;
 }
 
-/* FilmInfo */
-
-:root {
-    --color-1: #F4E3C9; /* bakgrund */
-    --color-2: #261F18; /* text/mrk */
-    --color-3: #C13825; /* rd */
-    --color-4: #E67520; /* orange */
-    --color-5: #EBB032; /* gul */
+/* Misc layout */
+.View_center {
+    height: 20rem;
+    margin-top: 5rem;
+    text-align: center;
 }
 
-body {
-    background-color: var(--color-1);
-    color: var(--color-2);
+#button_main {
+    background-color: var(--bs-primary);
+    color: var(--bs-body-color);
 }
 
-.btn-gradient {
-    background: linear-gradient(45deg, var(--color-3), var(--color-4), var(--color-5));
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 6px;
-    padding: 10px 20px;
-}
+/* Responsive */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
-
-.View_center{
-    
-    height:20rem;
- margin-top:5rem;
-  
-    text-align:center;
-
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
 }
 
-#button_main{
-    background-color:var(--bs-primary);
-    color:var(--bs-body-color);
+/* Focus states */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-#main_site{
-    width:80%;
-    
-}
-
-#header_header {
-    width: 100%;
+/* Dark mode */
+.body-dark-mode {
+    background-color: var(--DM-bs-body-bg);
+    color: var(--DM-bs-body-color);
 }

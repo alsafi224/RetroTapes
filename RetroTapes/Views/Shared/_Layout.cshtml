@@ -20,7 +20,6 @@
     <header>
         <div class="topnav">
             <div class="inner-topnav">
-                
                 <a asp-controller="Home" asp-action="Index" class="logo">
                     <img src="~/images/logo.png" alt="Logo">
                     RetroTapes
@@ -28,28 +27,31 @@
 
                 <nav class="nav-icons">
                     <a asp-controller="Search" asp-action="Index" title="Sök" class="search-icon">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </a>
 
                     <div class="dropdown">
-                    <a href="#" title="Meny" class="menu-icon">
-                        <i class="fa-solid fa-list"></i>
-                     </a>
+                        <a href="#" title="Meny" class="menu-icon">
+                            <i class="fa-solid fa-list"></i>
+                        </a>
 
-                     <div class="dropdown-menu">
-                         <a class="dropdown-item" asp-controller="Account" asp-action="Login">Login</a>
-                         <a class="dropdown-item" asp-controller="Search" asp-action="Advanced">Avancerad Sök</a>
-                     </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-controller="Account" asp-action="Login">Login</a>
+                            <a class="dropdown-item" asp-controller="Search" asp-action="Advanced">Avancerad Sök</a>
+                        </div>
                     </div>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <!-- Add a wrapper for all page content -->
+    <div class="page-content">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">
